@@ -1,0 +1,36 @@
+.blog-header.layui-bg-black
+      .layui-container
+        ul.layui-nav
+          li.layui-nav-item#haha
+            a(href="/")
+              i.layui-icon.layui-icon-home 
+              | 博客首页
+          li.layui-nav-item
+            a(href="1") 前端学习
+          li.layui-nav-item
+            a(href="//xiaofenggege.com/demo.html" target='_blank') 效果展示
+          li.layui-nav-item
+            a(href="//xiaofenggege.com/myself.html" target='_blank') 个人简介
+          li.layui-nav-item
+            a(href="2") 生活随笔
+         
+        //- 用户登录按钮
+        ul.layui-nav.blog-user
+
+          if session && !session.isNew
+            li.layui-nav-item
+              a(href=session.role > 1 ? "/admin/user": "/admin/article") 个人中心
+                //- span.layui-badge-dot
+            li.layui-nav-item
+              a(href="")
+                //- 用户测试头像
+                img(src=session.avatar).layui-nav-img
+                span= session.username
+              dl.layui-nav-child
+                dd
+                  a(href="/user/logout") 退出
+          else
+            li.layui-nav-item
+              a(href="/user/login") 登录
+            li.layui-nav-item
+              a(href="/user/reg") 注册
